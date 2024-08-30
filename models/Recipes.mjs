@@ -7,7 +7,7 @@ const RecipeSchema = new Schema ({
         required: true
     }, 
     ingredients: { 
-        type:String,
+        type:[String],
         required: true
     },
  imageUrl:{
@@ -18,7 +18,7 @@ const RecipeSchema = new Schema ({
         type: Number,
         required: true
     },
-    UserOwner:{type: mongoose.Schema.Types.ObjectId, ref: "users" , required: true}
+    // UserOwner:{type: mongoose.Schema.Types.ObjectId, ref: "users" , required: true}
     
 })
 

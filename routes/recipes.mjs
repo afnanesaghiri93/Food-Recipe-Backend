@@ -7,58 +7,66 @@ import UserModel from '../models/User.mjs';
 // import SavedRecipe from '../../frontend/foodRecipe-app/src/pages/SavedRecipe';
 
 const router = express.Router();
-
-router.get("/", async (req, res) => {
-  try {
-    const result = await RecipeModel.find({});
-    res.status(200).json(result);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.post("/", async (req,res) => {
-    const recipe = new RecipeModel(req.body);
+// full CRUD Functionality
+// CREATE a new recipe
+router.post("/", async (req, res) => {
     try {
-        const response = await recipe.save();
-        res.json(response)
-
-    }catch (err){
-        res.json(err);
+      const recipe = new RecipeModel(req.body);
+      const savedRecipe = await recipe.save();
+      res.status(201).json(savedRecipe);  // 201 status for resource creation
+    } catch (err) {
+      res.status(400).json({ error: 'Failed to create recipe', details: err });
     }
-})
-// router.put("/", async (req,res)=> {
-//     try{
-//     const recipe = await RecipeModel.findById(req.body.recipeID)
-//     const user = await UserModel.findById(req.body.userID)
-//     user.SavedRecipe.push(recipe);
-//         await user.save();
-//         res.json({SavedRecipe: user.SavedRecipe});
-//     }catch (err){
-//         res.json(err);
-//     }
-// })
+  });
+  
+  // READ all recipes
+  router.get("/", async (req, res) => {
+    try {
+      const recipes = await RecipeModel.find({});
+      res.status(200).json(recipes);
+    } catch (err) {
+      res.status(500).json({ error: 'Failed to fetch recipes', details: err });
+    }
+  });
+  
+  // READ a recipe by Id
+  router.get("/:id", async (req, res) => {
+    try {
+      const recipe = await RecipeModel.findById(req.params.id);
+      if (!recipe) {
+        return res.status(404).json({ error: 'Recipe not found' });
+      }
+      res.status(200).json(recipe);
+    } catch (err) {
+      res.status(500).json({ error: 'Failed to fetch recipe', details: err });
+    }
+  });
+  
+  // UPDATE a recipe by ID
+  router.put("/:id", async (req, res) => {
+    try {
+      const updatedRecipe = await RecipeModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      if (!updatedRecipe) {
+        return res.status(404).json({ error: 'Recipe not found' });
+      }
+      res.status(200).json(updatedRecipe);
+    } catch (err) {
+      res.status(400).json({ error: 'Failed to update recipe', details: err });
+    }
+  });
+  
+  // DELETE a recipe by ID
+  router.delete("/:id", async (req, res) => {
+    try {
+      const deletedRecipe = await RecipeModel.findByIdAndDelete(req.params.id);
+      if (!deletedRecipe) {
+        return res.status(404).json({ error: 'Recipe not found' });
+      }
+      res.status(200).json({ message: 'Recipe deleted successfully' });
+    } catch (err) {
+      res.status(500).json({ error: 'Failed to delete recipe', details: err });
+    }
+  });
 
-// router.get("/savedRecipe/ids"), async (req,res) =>{
-//     try{
-//         const user=await UserModel.findById(req.body.userID);
-//         res.json({SavedRecipe})
-//     }catch (err){
-//         res.json(err);
-//     }
-// }
-
-
-// router.get("/savedRecipe"), async (req,res) =>{
-//     try{
-//         const user=await UserModel.findById(req.body.userID);
-//         const savedRecipe = await RecipeModel.find({
-//             _id:{ $in: user.SavedRecipe}
-//         })
-//         res.json({SavedRecipe})
-//     }catch (err){
-//         res.json(err);
-//     }
-// }
 
 export {router as recipeRouter}
