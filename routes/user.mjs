@@ -32,7 +32,7 @@ router.post("/login", async (req,res) => {
         return res.json({ message : "Username or Password Is Incorrect"})
     }
     const token = jwt.sign({id: user._id}, "secret");
-    res.json({token, userID: user._id})
+    res.json({token, userID: user._id})//res.json that mean send back
 } )
 
 
