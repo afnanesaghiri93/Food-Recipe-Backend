@@ -1,5 +1,12 @@
 import mongoose from "mongoose";
 import { text } from "express";
+
+
+
+
+//========================
+//       Recipe Schema
+//========================
 const Schema = mongoose.Schema;
 const RecipeSchema = new Schema ({
     name : {

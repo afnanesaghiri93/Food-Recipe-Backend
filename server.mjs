@@ -14,7 +14,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middleware , Middleware goes between my variable declarations and my routes.
+
+//===========================================
+//        Middleware                                      // Middleware goes between my variable declarations and my routes.
+//=============================================
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({
@@ -26,13 +29,16 @@ app.use(express.urlencoded({
 // app.set('views', './views');
 // app.engine('jsx', jsxViewEngine());
 
-
-// Routes 
-
+//======================
+//      Routers 
+//======================
 app.use("/auth", userRouter);
 app.use("/recipes", recipeRouter);
 
-//Start my Server
+
+//==========================================
+//  Listening on PORT 3001 , start my server 
+//==========================================
 app.listen(PORT, () => {
     console.log(`Server is listining on  ${PORT}`)
 })
