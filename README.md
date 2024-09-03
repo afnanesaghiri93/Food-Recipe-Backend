@@ -2,7 +2,7 @@
 
 # Yummy Recipes
 
-Yummy Recipes is a Full-Stack web Application  desined for coooking enthusiasts using MongoDB, Express, React and Node (MERN) that allows users to explore , create and (save ) their favorite recipe. The appliction provide a friendly features user authentiction, recipe management and an interactive interface for browsing and (saving  recipes).
+Yummy Recipes is a Full-Stack web Application  desined for coooking enthusiasts built with Mern Stack using MongoDB, Express, React and Node (MERN) that allows users to explore , create and (save ) their favorite recipe. The appliction provide a friendly features user authentiction, recipe management and an interactive interface for browsing and (saving  recipes).
 
 # Table of contents
 - [Features]
@@ -36,10 +36,11 @@ The project follows a standard MERN stack folder structure:
 - Node.js
 - Express.js
 - MongoDB(Mongoose)
-- JWT for authentication 
+- JWT for authentication (JSON wen Token)
 - bcrypt for password hashing
 - cors for handling cross-origin request 
 - cookies for managing session token and user authentication
+dotenv for managing environment securely 
 
 **Frontend**
 - React
@@ -60,7 +61,7 @@ to run this project locally , follow this steps :
 Make sure to configue the following environment variables in your `.env` file:
 - MONGO_URL: the URL for connecting to your MongoDB database
 - JWT_SECRET: a secret key for signing JWT tokens for user authentication
-- PORT: the port in which backend server will run (PORT is `3001`)
+- PORT: the port in which backend server will run (PORT is `3001`), Open http://localhost:3000 
 
 ## Usage 
  - SignUp/Register : create a new account by providing a username and password
@@ -89,9 +90,13 @@ https://www.youtube.com/watch?v=P43DW3HUUH8&t=692s
 ### Saved Recipes Page: (user can save their favorite recipes to view later )  This feathure is currently under development.
  
 
+## Getting Started
+Clone using the web URL:
+```bash :
+https://github.com/afnanesaghiri93/Food-Recipe-Backend.git
 
-
-To start run  the backend server and frontend development server: 
+To start run  
+the backend server and frontend development server: : 
 ```bash : 
 npm run dev
 

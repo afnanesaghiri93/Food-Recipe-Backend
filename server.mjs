@@ -15,8 +15,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 
-//===========================================
-//        Middleware                                      // Middleware goes between my variable declarations and my routes.
+//=============================================
+//        Middleware                           // Middleware goes between my variable declarations and my routes.
 //=============================================
 app.use(cors());
 app.use(express.json());
@@ -42,6 +42,6 @@ app.use("/recipes", recipeRouter);
 app.listen(PORT, () => {
     console.log(`Server is listining on  ${PORT}`)
 })
-// Api routes
+
 
 
