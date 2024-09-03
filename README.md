@@ -6,6 +6,7 @@ Yummy Recipes is a Full-Stack web Application  desined for coooking enthusiasts 
 
 # Table of contents
 - [Features]
+- [Folder Structure]
 - [Tech Stack]
 - [Installation]
 - [Environment Variables]
@@ -14,11 +15,23 @@ Yummy Recipes is a Full-Stack web Application  desined for coooking enthusiasts 
 - [Accknoledgements]
 
 ## Features
+- **User Authentication**: Register and login with secure password hashing
+-**Recipe Management**: Create , update , delete and view recipes
+- **Save Recipes** : (user can save their favorite recipes to view later ) // This feathure is currently under development.
+
+
+## Folder Structure
+The project follows a standard MERN stack folder structure:
+- **frontend**: Contains the React frontend application.
+- **backend** : Contains the Express.js backend application  and contains this files :
+- Server.js: The main entry point for Express.js server setup, middleware configuration and routes imports
+- Models: Define the MongoDB schemas and models using mongoose
+- Routes: Define the API routes and contains functions that handle the logic for each route.
+- db: Configuration files (database connection).
 
 
 
-
-## Teck Stack
+## Tech Stack
 **Backend** :
 - Node.js
 - Express.js
@@ -41,6 +54,7 @@ to run this project locally , follow this steps :
 - Node.js
 - MongoDB
 - npm install
+
 
 ## Environment Variables 
 Make sure to configue the following environment variables in your `.env` file:
@@ -66,13 +80,18 @@ Make sure to configue the following environment variables in your `.env` file:
 - PUT/recipes/:id: update a recipe by ID
 - DELETE/recipes/:id: delete a recipe by ID
 
-
 ### Acknowledgments 
 - Data Source : This project uses  recipes from ALLRecipes website as a data source for fetching recipes  : www.allrecipes.com .
 - Tutorial Guide : I followed a Youtube tutorial by PedroTech for guidance on building this application. You can view the tutorial if you eant in this link : 
 https://www.youtube.com/watch?v=P43DW3HUUH8&t=692s
 
 
+### Saved Recipes Page: (user can save their favorite recipes to view later )  This feathure is currently under development.
+ 
+
+
+
 To start run  the backend server and frontend development server: 
 ```bash : 
 npm run dev
+
