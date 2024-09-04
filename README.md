@@ -2,7 +2,7 @@
 
 # Yummy Recipes
 
-Yummy Recipes is a Full-Stack web Application  desined for coooking enthusiasts built with Mern Stack using MongoDB, Express, React and Node (MERN) that allows users to explore , create and (save ) their favorite recipe. The appliction provide a friendly features user authentiction, recipe management and an interactive interface for browsing and (saving  recipes).
+Yummy Recipes is a Full-Stack web Application  desined for coooking enthusiasts built with MERN Stack using MongoDB, Express, React and Node that allows users to explore , create and (save ) their favorite recipe. The appliction provide a friendly features user authentiction, recipe management and an interactive interface for browsing and (saving  recipes).
 
 # Table of contents
 - [Features]

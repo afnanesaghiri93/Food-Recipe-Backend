@@ -32,5 +32,5 @@ const UserSchema = new mongoose.Schema({
 // Create a Mongoose model for the User schema
 const UserModel = mongoose.model("users", UserSchema);
 export default UserModel
-// Export the UserModel for use in other parts of the application
-// The model will use the "users" collection in MongoDB, and documents in this collection will follow the UserSchema
+//Export the UserModel for use in other parts of the application 
+// The model will use the users collection in MongoDB, and documents this collection named UserSchema
